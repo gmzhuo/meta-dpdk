@@ -95,6 +95,7 @@ do_configure () {
 	# Fix-up CONFIG_RTE_LIBRTE_POWER based on package config for libvirt
 	sed -e "s#CONFIG_RTE_LIBRTE_POWER=y#CONFIG_RTE_LIBRTE_POWER=${CONFIG_EXAMPLE_VM_POWER_MANAGER}#" -i ${S}/config/${CONFIG_NAME}
 
+	sed -e "s#CONFIG_RTE_EAL_IGB_UIO=n#CONFIG_RTE_EAL_IGB_UIO=y#" -i ${S}/config/common_base
 	make O=$RTE_TARGET T=$RTE_TARGET config
 }
 
